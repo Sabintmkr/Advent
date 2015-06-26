@@ -1,0 +1,41 @@
+﻿@using Advent.Library
+@{
+    // Determine page title
+    var adventInstalled = Config.AdventInstalled;
+    var pageTitle = adventInstalled ? Config.WebsiteName : "Advent";
+
+    // Body ID name
+    var areaName = (ViewContext.RouteData.DataTokens["area"] != null)
+        ? ViewContext.RouteData.DataTokens["area"].ToString().ToLower() : null;
+    var bodyId = (areaName == null) ? "" : areaName + "_";
+    var controllerName = ViewContext.RouteData.Values["Controller"].ToString().ToLower();
+    var actionName = ViewContext.RouteData.Values["Action"].ToString().ToLower();
+
+    bodyId += controllerName + "_" + actionName;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - @pageTitle</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/bundles/design/admin")
+</head>
+<body id="@bodyId">
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            @Html.ActionLink("Advent", "Index", adventInstalled ? "Dashboard" : "Setup", new {area = "Admin"}, new {@class = "navbar-brand"})
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@Scripts.Render("~/bundles/scripts/jquery")
+@Scripts.Render("~/bundles/scripts/bootstrap")
+</body>
+</html>

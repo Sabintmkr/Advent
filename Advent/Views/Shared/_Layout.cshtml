@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - MyWebsite</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/bundles/design/main")
+</head>
+<body>
+<div class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            @Html.ActionLink("MyWebsite", "Index", "Articles", new {@class = "navbar-brand"})
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        @Html.ActionLink("Sign Out", "SignOut", "Entry")
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @Html.ActionLink("Sign In", "SignIn", "Entry")
+                    </li>
+                    <li>
+                        @Html.ActionLink("Register", "Register", "Entry")
+                    </li>
+                }
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div>
+</div>
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@Scripts.Render("~/bundles/scripts/jquery")
+@Scripts.Render("~/bundles/scripts/bootstrap")
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿body#admin_setup_index .container { max-width: 600px; }
+
+.input-validation-error {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    border-color: #b94a48;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-validation-error:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+    border-color: #953b39;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+}
+
+.field-validation-error { color: #b94a48; }

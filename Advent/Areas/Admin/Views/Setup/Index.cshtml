@@ -1,0 +1,53 @@
+﻿@model Advent.Areas.Install.Models.SetupViewModel
+@{
+    ViewBag.Title = "Setup";
+}
+
+<div class="page-header">
+    <h1>
+        Setup <small>Initial setup for Advent</small>
+    </h1>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Website Details</h2>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.WebsiteName)
+        @Html.TextBoxFor(Model => Model.WebsiteName, new {@class = "form-control"})
+        @Html.ValidationMessageFor(Model => Model.WebsiteName)
+    </div>
+
+    <hr>
+
+    <h2>Administrator Account</h2>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.AdminName)
+        @Html.TextBoxFor(Model => Model.AdminName, new {@class = "form-control"})
+        @Html.ValidationMessageFor(Model => Model.AdminName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.AdminPassword)
+        @Html.PasswordFor(Model => Model.AdminPassword, new {@class = "form-control"})
+        @Html.ValidationMessageFor(Model => Model.AdminPassword)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.AdminConfirmPassword)
+        @Html.PasswordFor(Model => Model.AdminConfirmPassword, new {@class = "form-control"})
+        @Html.ValidationMessageFor(Model => Model.AdminConfirmPassword)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Model => Model.AdminEmail)
+        @Html.TextBoxFor(Model => Model.AdminEmail, new {@type = "email", @class = "form-control"})
+        @Html.ValidationMessageFor(Model => Model.AdminEmail)
+    </div>
+
+    <button type="submit" class="btn btn-default">Continue</button>
+}
