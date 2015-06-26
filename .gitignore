@@ -8,6 +8,7 @@
 *.sln.docstates
 App_Data/
 uploads/
+desktop.ini
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
